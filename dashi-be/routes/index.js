@@ -1,6 +1,6 @@
 module.exports = {
     auth: require('./auth'),
     users: require('./users'),
-    dash: require('./dashi'),
+    posts: require('./posts'),
     comments: require('./comments'),
-}
+};

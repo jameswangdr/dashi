@@ -14,14 +14,14 @@ const create = (req, res) => {
         db.User.findById(req.body.userId, {password: 0}, (error,foundUser)=>{
             if (error) return sendErrorResponse(res, error);
             db.Comment.user = foundUser
-            db.Dash.findById(req.body.dashId, (error,foundDash)=>{
+            db.Post.findById(req.body.PostId, (error,foundPost)=>{
                 if (error) return sendErrorResponse(res, error);
-                db.Comment.Dash = foundDash
+                db.Comment.Post = foundPost
 
-                foundDash.recent_comments.push(createdComment);
+                foundPost.recent_comments.push(createdComment);
 
                 createdComment.save();
-                db.Comment.findById(createdComment._id).populate('user').populate('Dash')
+                db.Comment.findById(createdComment._id).populate('user').populate('Post')
                     .exec((error, foundComment) => {
                         if (error) return sendErrorResponse(res, error);
                         sendSuccessResponse(res, foundComment);
@@ -39,7 +39,6 @@ const destroy = (req, res) => {
 };
 
 module.exports = {
-    // index,
     show,
     create,
     update,

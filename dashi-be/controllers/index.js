@@ -1,6 +1,6 @@
 module.exports = {
     auth: require('./authController'),
     users: require('./userController'),
-    dash: require('./dashController'),
+    post: require('./postController'),
     comment: require('./commentController'),
 };

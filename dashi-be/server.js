@@ -38,8 +38,8 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', routes.auth);
 app.use('/api/users', routes.users);
-app.use('/api/dash', routes.dash);
 app.use('/api/posts', routes.posts);
+app.use('/api/comments', routes.comments);
 
 
 app.listen(PORT, () => {
