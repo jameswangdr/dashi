@@ -18,7 +18,7 @@ const create = (req, res) => {
                 if (error) return sendErrorResponse(res, error);
                 db.Comment.Dash = foundDash
 
-                foundash.recent_comments.push(createdComment);
+                foundDash.recent_comments.push(createdComment);
 
                 createdComment.save();
                 db.Comment.findById(createdComment._id).populate('user').populate('Dash')
