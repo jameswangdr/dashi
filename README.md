@@ -1,4 +1,4 @@
-# Wayfarer
+# dashi
 
 ## Link to Heroku
 www.###.com
