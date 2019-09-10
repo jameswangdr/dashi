@@ -40,6 +40,7 @@ app.use('/api/auth', routes.auth);
 app.use('/api/users', routes.users);
 app.use('/api/posts', routes.posts);
 app.use('/api/comments', routes.comments);
+// app.use('/api/news', routes.news);
 
 
 app.listen(PORT, () => {

@@ -7,10 +7,10 @@ const commentSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'User',
         },
-    dash: 
+    post: 
         {
             type: Schema.Types.ObjectId,
-            ref: 'Dash',
+            ref: 'Post',
         },
     content: {
         type: String,
@@ -28,6 +28,6 @@ const commentSchema = new Schema({
 
 })
 
-const Post = mongoose.model('Comment', commentSchema);
+const Comment = mongoose.model('Comment', commentSchema);
 
 module.exports = Comment;

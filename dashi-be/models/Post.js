@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Comment = require('./Comment');
 
-const dashSchema = new Schema ({
+const postSchema = new Schema ({
     user: 
         {
             type: Schema.Types.ObjectId,
@@ -13,10 +14,11 @@ const dashSchema = new Schema ({
         maxlength: [300, 'Max length exceeded'],
     },
     img: {
-        data: Buffer, 
-        contentType: String // cloundinary.com?
+        type: String,
+        // data: Buffer, 
+        // contentType: String // cloundinary.com?
     },
-    recent_comments: [],
+    recent_comments: [Comment.schema],
     likes: {
         type: Number,
         default: 0,
@@ -27,6 +29,6 @@ const dashSchema = new Schema ({
     },
 });
 
-const Dash = mongoose.model('Dash', dashSchema);
+const Post = mongoose.model('Post', postSchema);
 
-module.exports = Dash;
+module.exports = Post;

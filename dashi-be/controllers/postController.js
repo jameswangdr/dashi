@@ -2,9 +2,9 @@ const db = require('../models');
 const { sendErrorResponse, sendSuccessResponse } = require('./response')
 
 const index = (req, res) => {
-    db.Post.find({}).exec((error, foundAllPosti) => {
+    db.Post.find({}).populate('user').exec((error, foundAllPost) => {
         if (error) return sendErrorResponse(res, error);
-        sendSuccessResponse(res, foundAllPosti);
+        sendSuccessResponse(res, foundAllPost);
     });
 };
 
@@ -18,15 +18,16 @@ const show = (req, res) => {
 const create = (req, res) => {
     db.Post.create(req.body, (error, createdPost) => {
         if (error) return sendErrorResponse(res, error);
-        sendSuccessResponse(res, createdPost);
-        db.User.findById(req.body.userId, { password: 0 }, (error, foundUser) => {
+        db.User.findById(req.body.UserId, { password: 0 }, (error, foundUser) => {
             if (error) return sendErrorResponse(res, error);
-            db.Post.user = foundUser;
-            createdPost.save();
-            // db.Post.findById(createdPost._id).populate('user').populate('Post')
-            //     .exec((error, foundPost) => {
-            //         if (error) return sendErrorResponse(res, error);
-            //         sendSuccessResponse(res, foundPost);
+            db.Post.User = foundUser;
+            createdPost.save((err, savedPost) => {
+                db.Post.findById(createdPost._id).populate('user')
+                .exec((error, foundPost) => {
+                    if (error) return sendErrorResponse(res, error);
+                    sendSuccessResponse(res, foundPost);
+                });
+            })
         });
     });
 };

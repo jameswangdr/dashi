@@ -1,0 +1,16 @@
+.home-container {
+    height: 100vh;
+}
+.sidebar-container {
+    height: 100vh;
+    background-color: var(--light);
+}
+.content-container {
+    height: 100vh;
+    background-color: white;
+    overflow-y: scroll;
+}
+
+.post-card {
+    overflow-y: scroll;   
+}

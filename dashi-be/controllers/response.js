@@ -1,4 +1,3 @@
-
 const sendSuccessResponse = (res, data) => {
 	res.status(200).json({
 		status: 201,
