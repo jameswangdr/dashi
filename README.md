@@ -6,7 +6,7 @@ www.###.com
 -------------------------------------------
 #### What is Dashi?
 
-- Dashi is an online news and social networking site where people communicate in short messages called dashi(tweets). Dashing(Tweeting) is posting short messages for anyone who uses (Dashi)Twitter, with the hope that your messages are useful and interesting to someone in your audience. Another description of (Dashi)Twitter and (dashing)tweeting might be microblogging.
+- Dashi is an online news and social networking site where people communicate in short messages called posts(tweets). Posting(Tweeting) is rendering short messages for anyone who uses Dashi(Twitter), with the hope that your messages are useful and interesting to someone in your audience. Another description of Dashi(Twitter) and posting(tweeting) might be microblogging.
 -------------------------------------------
 
 #### Technologies Stack (MERN)
@@ -15,7 +15,8 @@ www.###.com
 - Express
 - Mongoose/MongoDB
 - Bootstrap
-- Bcrypt/Express-Session for auth
+- Bcrypt/Express-Session
+- External API
 
 #### Code style
 - AirBnb JS
