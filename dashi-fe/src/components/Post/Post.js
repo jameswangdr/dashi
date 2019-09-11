@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { API_URL } from '../../constants';
 import axios from 'axios';
+
+import logo from './logo.png';
+import edit from './edit.png';
+import trash from './trash.png';
+
 import './Post.css';
 
 class Post extends Component {
@@ -20,7 +25,7 @@ class Post extends Component {
                 // this.clearModal();
                 this.setState({ content });
                 this.props.fetchPosts();
-             
+
             });
     };
 
@@ -38,23 +43,28 @@ class Post extends Component {
 
     render() {
         const { post } = this.props;
-        const username = localStorage.getItem('username');
-        console.log(this.props.post._id);
-        console.log(this.state);
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', time: 'numeric' };
 
         return (
-            <div className="card post-card">
-                <div className="container">
+            <div className="card">
+                <div className="post-card">
                     <div className="row">
-                        <div className="col-md-2 profile-thumb">
-                            <img src={post.user.profile_photo} />
+                        <div className="col-md-3">
+                            <img className="post-thumb" src={post.user.profile_photo} />
+                            <div className="row">
+                                <button className="post-delete-btn" onClick={this.deletePost}>
+                                    <img className="post-delete-img" src={trash}></img>
+                                </button>
+                                <button className="post-edit-btn" aria-pressed="true" data-toggle="modal" data-target={`#postModal-${post._id}`}>
+                                    <img className="post-edit-img" src={edit}></img>
+                                </button>
+                            </div>
                         </div>
-                        <div className="col-md-10">
-                            <p>@{post.user.username} • {new Date(post.date_posted).toLocaleString()}</p>
+                        <div className="col-md-9">
+                            <p><span className="at-user">@{post.user.username}</span> • <span className="timestamp">{new Date(post.date_posted).toLocaleDateString("en-US", options)}</span></p>
                             <p>{post.content}</p>
                         </div>
                     </div>
-
                 </div>
                 {post.user._id === this.props.currentUser
                     ?
@@ -62,26 +72,42 @@ class Post extends Component {
                         <div className="modal fade" id={`postModal-${post._id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div className="modal-dialog modal-dialog-centered" role="document">
                                 <div className="modal-content">
+                                    <button id="close" type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    {this.state.errors && this.state.errors.map((e, i) => (
+                                        <div className="alert alert-danger alert-dismissible fade show" style={{ width: '100%' }} role="alert" key={i}>
+                                            {e.message}
+                                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    ))}
+                                    <div className="modal-img">
+                                        <img src={logo}></img>
+                                    </div>
                                     <div className="modal-header">
-                                        <h5 className="modal-title" id="exampleModalLabel">Edit Post</h5>
-                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <h4 className="modal-title" id="exampleModalLabel">Edit post</h4>
                                     </div>
                                     <div className="modal-body">
                                         <form >
                                             <div className="form-group">
-                                                <label htmlFor="Content">Content</label>
-                                                <input type="text" id="edit" name="content" value={this.state.content} default={this.state.content} onChange={this.onChangePost} className="form-control form-control-lg" />
+                                                <input type="text" id="edit" name="content" placeholder="What did you misspell?" value={this.state.content} default={this.state.content} onChange={this.onChangePost} className="form-control form-control-lg" />
                                             </div>
                                         </form>
                                     </div>
-                                    <button onClick={this.updatePost} type="button" className="save-post-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Save</span></button>
+                                    <button onClick={this.updatePost} type="submit" id="modal-edit-btn" data-dismiss="modal" className="btn active"><span aria-hidden="true">Save</span></button>
                                 </div>
                             </div>
                         </div>
-                        <button className="edit-post-btn" aria-pressed="true" data-toggle="modal" data-target={`#postModal-${post._id}`}>Edit</button>
-                        <button className="delete-post-btn" onClick={this.deletePost}>Delete</button>
+                        {/* <div>
+                            <button className="post-delete-btn" onClick={this.deletePost}>
+                                <img className="post-delete-img" src={trash}></img>
+                            </button>
+                            <button className="post-edit-btn" aria-pressed="true" data-toggle="modal" data-target={`#postModal-${post._id}`}>
+                                <img className="post-edit-img" src={edit}></img>
+                            </button>
+                        </div> */}
                     </>
                     : null}
             </div >

@@ -1,0 +1,15 @@
+.article-container a{
+    /* text-decoration: none; */
+    color: black;
+};
+
+.article-container a:hover{
+    background: red;
+    /* text-decoration: none; */
+    color: black;
+};
+
+.test:hover{
+    background: black;
+    color: white;
+};

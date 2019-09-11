@@ -7,11 +7,11 @@ import HomeContainer from '../containers/HomeContainer/HomeContainer';
 import ProfileContainer from '../containers/ProfileContainer/ProfileContainer';
 import NewsContainer from '../containers/NewsContainer/NewsContainer';
 
-const Routes = ({ currentUser, setCurrentUser, logout, history, news }) => {
+const Routes = ({ currentUser, setCurrentUser, logout, history, profile, news }) => {
     const PrivateRoute = ({ component: Component, ...rest }) => {
         return <Route {...rest} render={(props) => (
             currentUser
-            ? <Component {...props} currentUser={currentUser} news={news} logout={logout} />
+            ? <Component {...props} currentUser={currentUser} profile={profile} news={news} logout={logout} />
             : <Redirect to='/' />
         )} />
     };
@@ -19,9 +19,9 @@ const Routes = ({ currentUser, setCurrentUser, logout, history, news }) => {
     return (
         <Switch>
             <Route exact path='/' render={(props) => <LandingContainer {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} history={history}/>} />
-            <PrivateRoute path='/home' component={ HomeContainer } news={news} logout={logout} currentUser={currentUser} history={history}/>
-            <PrivateRoute path='/profile' component={ ProfileContainer } news={news} logout={logout} currentUser={currentUser} history={history}/>
-            <PrivateRoute path='/news' component={ NewsContainer } news={news} logout={logout} currentUser={currentUser} history={history}/>
+            <PrivateRoute path='/home' component={ HomeContainer } profile={profile} news={news} logout={logout} currentUser={currentUser} history={history}/>
+            <PrivateRoute path='/profile' component={ ProfileContainer } profile={profile} news={news} logout={logout} currentUser={currentUser} history={history}/>
+            <PrivateRoute path='/news' component={ NewsContainer } profile={profile} news={news} logout={logout} currentUser={currentUser} history={history}/>
             <Route path='*' component={ NotFound }/>
         </Switch>
     );

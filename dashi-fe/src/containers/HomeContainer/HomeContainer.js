@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import './HomeContainer.css';
+
 import Home from '../../components/Home/Home';
 import NavBar from '../../components/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import SideFooter from '../../components/Footer/SideFooter';
-import News from '../../components/News/News';
+import NewsBar from '../../components/NewsBar/NewsBar';
 import PostContainer from '../../containers/PostContainer/PostContainer';
 
+import './HomeContainer.css';
 
 class HomeContainer extends Component {
     state = {
@@ -17,18 +17,20 @@ class HomeContainer extends Component {
         return (
             <div className="container-fluid">
                 <div className="row home-container">
-                    <div className="col-sm-2 sidebar-container">
+                    <div className="col-xs-2 sidebar-container">
                         <NavBar logout={this.props.logout} />
                     </div>
-                    <div className="col-sm-7 content-container">
-                        <Home profile={this.props.profile}/>
-                        <PostContainer profile={this.props.profile} currentUser={this.props.currentUser}/>
+                    <div className="col-md-6 content-container">
+                        <Home profile={this.props.profile} />
+                        <PostContainer profile={this.props.profile} currentUser={this.props.currentUser} />
                     </div>
-                    <div className="col-md-3 right-container">
+                    <div className="col-md-4 right-container">
                         <SearchBar />
-                        {this.props.news.map((article, i) => (
-                            <News key={i} article={article} />
-                        ))}
+                        <div className='news-bar-container'>
+                            {this.props.news.map((article, i) => (
+                                <NewsBar key={i} article={article} />
+                            ))}
+                        </div>
                         <SideFooter />
                     </div>
                 </div>

@@ -1,67 +1,75 @@
 import React from 'react';
+
+import logo from './logo.png';
+
 import './Profile.css';
 
 const Profile = (props) => {
-    const profile = props.profile
-    console.log(profile);
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', time: 'numeric' };
+
     return (
         <>
-            <button onClick={() => props.history.goBack()}>Go Back</button>
+            <div>
+                <p className="profile">Profile</p>
+                <hr />
+            </div>
 
             <div className="modal fade" id="editModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
+                        <button id="close" type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div className="modal-img">
+                            <img src={logo}></img>
+                        </div>
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Edit Profile</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                            <h4 className="modal-title" id="exampleModalLabel">Edit post</h4>
                         </div>
                         <div className="modal-body">
                             <form >
                                 <div className="form-group">
-                                    <label htmlFor="Username">Username</label>
-                                    <input type="text" id="username" name="username"  onChange={props.onChange} className="form-control form-control-lg" />
-                                </div>
-                                <div>
-                                    <label htmlFor="email-register">Email</label>
-                                    <input type="email" id="email" name="email" onChange={props.onChange} className="form-control form-control-lg" />
+                                    <input type="text" id="username" name="username" placeholder="Username" onChange={props.onChange} className="form-control form-control-lg" />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="text">Photo</label>
-                                    <input type="text" id="edit-photo" name="profile_photo"  onChange={props.onChange} className="form-control form-control-lg" />
+                                    <input type="email" id="email" name="email" placeholder="Email" onChange={props.onChange} className="form-control form-control-lg" />
                                 </div>
+                                <div className="form-group">
+                                    <input type="text" id="edit-photo" name="profile_photo" placeholder="Profile picture" onChange={props.onChange} className="form-control form-control-lg" />
+                                </div>
+                                <button id="profile-edit-modal" onClick={props.onSubmit} className="btn active" aria-pressed="true" data-toggle="modal" data-target="#editModal">Edit</button>
                             </form>
                         </div>
-                        <button onClick={props.onSubmit} className="btn btn-primary" aria-pressed="true" data-toggle="modal" data-target="#editModal">Edit</button>
                     </div>
                 </div>
             </div>
 
-            
-        <div className="container">
-            <div className="row">
-                <div className="col-md-12">
-                    <img src={profile.profile_photo} alt="user" />
+
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <img className="profile-photo" src={props.profile.profile_photo} alt="profile photo" />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-8">
+                        <p className="greeting"> Welcome {props.profile.username}!</p>
+                    </div>
+                    <div className="col-md-4">
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6">
+                        <p>E-mail: {props.profile.email}</p>
+                    </div>
+                    <div className="col-md-6">
+                        <p>Joined on: {new Date(props.profile.join_date).toLocaleDateString("en-US", options)}</p>
+                    </div>
+                </div>
+                <div className="row">
+                    <button id="profile-edit-btn" className="btn active" aria-pressed="true" data-toggle="modal" data-target="#editModal">Edit profile</button>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-md-8">
-                    <p> {profile.username}</p>
-                </div>
-                <div className="col-md-4">
-                <button className="btn btn-primary btn-lg active" aria-pressed="true" data-toggle="modal" data-target="#editModal">Edit profile</button>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-6">
-              <p>{profile.email}</p>
-                </div>
-                <div className="col-md-6">
-                    <p>Joined {new Date(profile.join_date).toLocaleString()}</p>
-                </div>
-            </div>
-        </div>
         </>
     )
 }

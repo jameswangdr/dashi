@@ -1,16 +1,25 @@
 .home-container {
     height: 100vh;
 }
+
 .sidebar-container {
     height: 100vh;
-    background-color: var(--light);
 }
+
 .content-container {
     height: 100vh;
     background-color: white;
     overflow-y: scroll;
 }
+ 
+ .right-container {
+    height: 100vh;
+    background-color: white;
+    overflow-y: scroll;
+} 
 
-.post-card {
-    overflow-y: scroll;   
+.news-bar-container {
+    background-color: var(--lightgray);
+    border-radius: 2em;
+    padding: 1.5em;
 }

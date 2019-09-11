@@ -1,0 +1,19 @@
+#new-post {
+    color: white;
+    background-color: var(--main);
+    width: 100%;
+    border-radius: 10em;
+    padding: .3em;
+    margin-top: 1em;
+    font-weight: 500;
+}
+
+#new-post:hover {
+    background-color: var(--dark);
+}
+
+.user-thumb {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5em;
+}

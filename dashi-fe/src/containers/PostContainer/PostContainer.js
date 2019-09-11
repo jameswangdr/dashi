@@ -35,13 +35,10 @@ class PostContainer extends Component {
         this.fetchPosts();
     };
 
-    
-
     render() {
         return (
             <>
                 <NewPost postsFetched={this.state.postsFetched} pushNewPost={this.pushNewPost} setCurrentUser={this.setCurrentUser} profile={this.props.profile}/>
-                {/* <Post post={this.state.posts} setCurrentUser={this.setCurrentUser}/> */}
                 { this.state.posts.map((post,i) => <Post currentUser={this.props.currentUser} profile={this.props.profile} fetchPosts={this.fetchPosts} post={post} key={i} />).reverse() }
             </>
         );

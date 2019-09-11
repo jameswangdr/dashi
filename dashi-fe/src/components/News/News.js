@@ -1,19 +1,15 @@
 import React from 'react';
+import './News.css'
 
 const News = (props) => {
-    // if (props.news) {
-    //     props.news.map((article) => {
-    //         console.log(article);
-    //     });
-    // }
-  
 
     return (
-        <div className="container">
-            <div>
-                    <a href={props.article.url} target="_blank">{props.article.title}</a>
-                    <hr/>
-            </div>
+        <div className="news-article-container">
+                <a href={props.article.url} target="_blank"> 
+                    <img className="article-img" src={props.article.urlToImage}></img>
+                    <p className="article-link">{props.article.title}</p>
+                </a>
+                <hr />
         </div>
     )
 }

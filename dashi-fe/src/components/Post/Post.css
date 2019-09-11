@@ -1,4 +1,87 @@
-.profile-thumb img{
+.post-thumb {
     max-width: 100%;
     height: auto;
+    border-radius: 5em;
+}
+
+.post-card {
+    margin: 1em;
+}
+
+.card {
+    margin: .5em;
+    border-radius: 1em;
+}
+
+.at-user {
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+.timestamp {
+    color: var(--darkgray);
+}
+
+.modal-content {
+    border-radius: 1em;
+}
+
+.modal-img {
+    text-align: center;
+}
+
+.modal-img img {
+    margin-top: 1em;
+    height: 3rem;
+    width: 3rem;
+}
+
+#close {
+    margin: .5em;
+}
+
+#modal-edit-btn {
+    color: white;
+    background-color: var(--main);
+    width: 93%;
+    border-radius: 10em;
+    padding: .3em;
+    margin: 1em;
+    font-weight: 500;
+}
+
+.post-edit-btn {
+    width: 2em;
+    border-radius: 10em;
+    margin: .5em .5em .5em .5em;
+}
+
+.post-delete-btn {
+    width: 2em;
+    border-radius: 10em;
+    margin: .5em .5em .5em 2em;
+}
+
+.post-edit-btn:hover {
+    background-color: var(--light);
+    border: 1px solid var(--main);
+}
+
+.post-delete-btn:hover {
+    background-color: var(--light);
+    border: 1px solid var(--main);
+}
+
+#modal-edit-btn:hover {
+    background-color: var(--dark);
+}
+
+.post-edit-img {
+    height: 1em;
+    width: 1em;
+}
+
+.post-delete-img {
+    height: 1em;
+    width: 1em;
 }

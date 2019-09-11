@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../constants';
 
+import './NewPost.css';
+
 class NewPost extends Component {
     state = {
     };
@@ -32,14 +34,22 @@ class NewPost extends Component {
     render() {
         return (
             <>
-                <div id="new-post">
-                    <form>
-                        <div>
-                            <label htmlFor="content">What's happening?</label>
-                            <textarea id="content" name="content" placeholder="What's happening?" value={this.state.content} onChange={this.handleChange} className="form-control"></textarea>
+                <div className="new-post-container">
+                    <hr/>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <img className="user-thumb" src={this.props.profile.profile_photo} />
                         </div>
-                        <button onClick={this.handleSubmit} type="button" className="btn btn-primary">Submit</button>
-                    </form>
+                        <div className="col-md-8">
+                            <div id="new-post-form">
+                                <form>
+                                    <textarea id="content" name="content" placeholder="What's happening?" value={this.state.content} onChange={this.handleChange} className="form-control"></textarea>
+                                    <button id="new-post" onClick={this.handleSubmit} type="button" className="btn active">Post</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
                 </div>
             </>
         );

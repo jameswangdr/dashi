@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 
+import search from './search.png';
+
+import './SearchBar.css'
+
+// https://dev.to/iam_timsmith/lets-build-a-search-bar-in-react-120j //
+// To be implemented
+
 class SearchBar extends Component {
     state = {
         // content:  this.props.post.content,
@@ -39,8 +46,13 @@ class SearchBar extends Component {
     };
 
     render() {
-        return(
-            <input type="text" className="input" onChange={this.handleChange} placeholder="Search..." />
+        return (
+            <>
+                <input id="searchbar" type="search" onChange={this.handleChange} placeholder="Search Dashi" />
+                <div className="trending">
+                    <p>Trending</p>
+                </div>
+            </>
         )
     }
 };

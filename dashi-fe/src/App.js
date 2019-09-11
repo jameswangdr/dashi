@@ -9,19 +9,17 @@ import Routes from './config/routes'
 class App extends Component {
   state = {
     currentUser: localStorage.getItem('uid'),
+    profile: {},
     news: [],
   };
 
-
-  setCurrentUser = (userId, username) => {
+  setCurrentUser = (userId) => {
     localStorage.setItem('uid', userId);
-    localStorage.setItem('username', username);
     this.setState({ currentUser: userId });
   }
 
   handleLogout = () => {
     localStorage.removeItem('uid');
-    localStorage.removeItem('username');
     axios.post(`${API_URL}/auth/logout`, { withCredentials: true })
       .then(() => {
         this.props.history.push('/');
@@ -47,20 +45,16 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchNews();
+    const userId = localStorage.getItem('uid');
+    axios.get(`${API_URL}/users/${userId}`, { withCredentials: true })
+        .then(res => this.setState({ profile: res.data.data }))
+        .catch(err => console.log(err));
   };
-
-  // componentDidMount = () => {
-  //   const userId = localStorage.getItem('uid');
-  //   axios.get(`${API_URL}/users/${userId}`, { withCredentials: true })
-  //     .then(res => this.setState({ profile: res.data.data }))
-  //     .catch(err => console.log(err));
-  // };
-
 
   render() {
     return (
       <>
-        <Routes news={this.state.news} currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} logout={this.handleLogout} history={this.props.history} />
+        <Routes news={this.state.news} profile={this.state.profile} currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} logout={this.handleLogout} history={this.props.history} />
       </>
     );
   };

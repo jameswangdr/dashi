@@ -1,31 +1,120 @@
-#home-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-  
-#left-container { 
+.left-container { 
     position: absolute;
     width: 50%;
     height: 100%;
     overflow: hidden;
     left: 0;
-    background-color: var(--main);
+    background: url('./background.png');
+    background-size: cover;
 }
 
-#right-container {
+.right-container {
     position: absolute;
     width: 50%;
     height: 100%;
     overflow: hidden;
     right: 0;
+    background-color: white;
+}
+
+.login-container {
+    margin: 2em 4em 0 4em;
+    top: 0;
+    text-align: center;
+}
+
+.feature-container {
+    padding-top: 3em;
+}
+
+.join-container {
+    padding-top: 3em;
+}
+
+.left-content {
+    font-size: 1em;
+    color: white;
+    padding: 25% 15% 25% 15%;
+}
+
+.right-content {
+    padding: 20% 20% 25% 20%;
+    color: black;
+}
+
+.right-content img {
+    height: 4em;
+    width: 4em;
+    margin-bottom: 1em;
+}
+
+div .col-10 {
+    padding-left: 0.3em;
+}
+
+#signup-btn {
+    color: white;
+    background-color: var(--main);
+    width: 100%;
+    border-radius: 10em;
+    padding: .3em;
+    margin-top: 1em;
+    font-weight: 500;
+}
+
+#login-btn {
+    color: var(--main);
+    background-color: white;
+    width: 100%;
+    border: 1px solid var(--main);
+    border-radius: 10em;
+    padding: .3em;
+    margin-top: 1em;
+    font-weight: 500;
+}
+
+#login-btn-mini {
+    color: var(--main);
+    background-color: white;
+    width: 15%;
+    border: 1px solid var(--main);
+    border-radius: 10em;
+    padding: .8em;
+    font-weight: 500;
+    float: left;
+    font-size: .9em;
+}
+
+.landing-email {
+    height: 3.5em;
+    width: 35%;
+    float: left;
+    font-size: .9em;
+    margin-left: 2em;
+    margin-right: 1em;
+}
+
+.landing-password {
+    height: 3.5em;
+    width: 35%;
+    float: left;
+    font-size: .9em;
+    margin-right: 1em;
+}
+
+.landing-icon {
+    height: 2em;
+    width: 2em;
+}
+
+#signup-btn:hover {
+    background-color: var(--dark);
+}
+
+#login-btn:hover, #login-btn-mini:hover {
     background-color: var(--light);
 }
 
-#left-content {
-    padding: 20%;
-}
-
-#right-content {
-    padding: 20%;
+h5 {
+    margin-bottom: 0;
 }
