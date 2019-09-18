@@ -13,20 +13,20 @@ const NavBar = ({ logout }) => {
         <nav>
             <Link to='/home'>
                 <figure>
-                    <img src={logo} id="sidenav-logo"></img>
+                    <img src={logo} id="sidenav-logo" alt="dashi"></img>
                 </figure>
             </Link>
             <Link className="sidenav-link" to='/home'>
-                <img src={home} className="sidenav-icon"></img> Home
+                <img src={home} className="sidenav-icon" alt="home"></img> Home
             </Link>
             <Link className="sidenav-link" to='/news'>
-                <img src={hashtag} className="sidenav-icon"></img> News
+                <img src={hashtag} className="sidenav-icon" alt="hashtag"></img> News
             </Link>
             <Link className="sidenav-link" to='/profile'>
-                <img src={profile} className="sidenav-icon"></img> Profile
+                <img src={profile} className="sidenav-icon" alt="profile"></img> Profile
             </Link>
-            <Link className="sidenav-link" onClick={logout}>
-                <img src={logicon} className="sidenav-icon"></img> Logout
+            <Link id="logout" className="sidenav-link" onClick={logout}>
+                <img src={logicon} className="sidenav-icon" alt="logout"></img> Logout
             </Link>
         </nav>
     );

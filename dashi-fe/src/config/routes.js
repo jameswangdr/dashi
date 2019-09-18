@@ -11,7 +11,7 @@ const Routes = ({ currentUser, setCurrentUser, logout, history, profile, news })
     const PrivateRoute = ({ component: Component, ...rest }) => {
         return <Route {...rest} render={(props) => (
             currentUser
-            ? <Component {...props} currentUser={currentUser} profile={profile} news={news} logout={logout} />
+            ? <Component {...props} setCurrentUse={setCurrentUser} currentUser={currentUser} profile={profile} news={news} logout={logout} />
             : <Redirect to='/' />
         )} />
     };

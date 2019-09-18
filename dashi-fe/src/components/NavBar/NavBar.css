@@ -1,6 +1,6 @@
 .sidenav-icon {
-    height: 3rem;
-    width: 3rem;
+    height: 2rem;
+    width: 2rem;
     margin-right: .5em;
 }
 
@@ -33,3 +33,7 @@ figure #sidenav-logo:hover {
     transition: 0.3s;
     border-radius: 10rem;
 }
+/* 
+#logout {
+    : 5em;
+} */

@@ -52,6 +52,7 @@ const Landing = (props) => {
                         <input type="email" name="email" value={props.state.email} onChange={props.handleChange} placeholder="Email" className="landing-email form-control" />
                         <input type="password" name="password" value={props.state.password} onChange={props.handleChange} placeholder="Password" className="landing-password form-control" />
                         <button id="login-btn-mini" onClick={props.handleSubmit} type="submit" className="btn active">Log in</button>
+                        {/* <button onClick={props.handleSubmit} type="submit" id="modal-login-btn" data-dismiss="modal" className="btn active">Login</button> */}
                     </form>
                 </div>
                 <div className="right-content">

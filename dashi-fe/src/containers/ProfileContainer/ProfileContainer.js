@@ -42,6 +42,7 @@ class ProfileContainer extends Component {
                     </div>
                     <div className="col-md-6 content-container">
                         <Profile profile={this.state.profile} history={this.props.history} onSubmit={this.updateProfile} onChange={this.onChange} />
+                        
                     </div>
                     <div className="col-md-4 right-container">
                         <SearchBar />

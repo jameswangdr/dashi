@@ -2,7 +2,6 @@ import React from 'react';
 import './NewsBar.css';
 
 const News = (props) => {
-    console.log(props.article)
     return (
         <div className="article-container">
             <div>

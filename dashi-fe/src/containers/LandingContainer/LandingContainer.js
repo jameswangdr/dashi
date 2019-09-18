@@ -30,7 +30,7 @@ class LandingContainer extends Component {
 
         axios.post(`${API_URL}/auth/login`, userInfo, { withCredentials: true })
             .then(res => {
-                this.props.setCurrentUser(res.data.id, res.data.username);
+                this.props.setCurrentUser(res.data.id);
                 this.props.history.push('/home')
             })
             .catch(err => {
@@ -40,7 +40,7 @@ class LandingContainer extends Component {
     render() {
         return (
             <>
-                <Landing state={this.state} setCurrentUser={this.props.setCurrentUser} handleChange={this.handleChange} handlesubmit={this.handleSubmit}/>
+                <Landing state={this.state} setCurrentUser={this.props.setCurrentUser} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
                 <Register setCurrentUser={this.props.setCurrentUser}/>
                 <Login setCurrentUser={this.props.setCurrentUser} />
                 <Footer />

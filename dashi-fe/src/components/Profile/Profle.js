@@ -24,7 +24,7 @@ const Profile = (props) => {
                             <img src={logo}></img>
                         </div>
                         <div className="modal-header">
-                            <h4 className="modal-title" id="exampleModalLabel">Edit post</h4>
+                            <h4 className="modal-title" id="exampleModalLabel">Edit profile</h4>
                         </div>
                         <div className="modal-body">
                             <form >
@@ -37,7 +37,7 @@ const Profile = (props) => {
                                 <div className="form-group">
                                     <input type="text" id="edit-photo" name="profile_photo" placeholder="Profile picture" onChange={props.onChange} className="form-control form-control-lg" />
                                 </div>
-                                <button id="profile-edit-modal" onClick={props.onSubmit} className="btn active" aria-pressed="true" data-toggle="modal" data-target="#editModal">Edit</button>
+                                <button id="profile-edit-modal" onClick={props.onSubmit} className="btn active" aria-pressed="true" data-toggle="modal" data-target="#editModal">Save</button>
                             </form>
                         </div>
                     </div>

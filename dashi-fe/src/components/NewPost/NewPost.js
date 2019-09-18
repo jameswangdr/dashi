@@ -37,10 +37,10 @@ class NewPost extends Component {
                 <div className="new-post-container">
                     <hr/>
                     <div className="row">
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             <img className="user-thumb" src={this.props.profile.profile_photo} />
                         </div>
-                        <div className="col-md-8">
+                        <div className="col-md-9">
                             <div id="new-post-form">
                                 <form>
                                     <textarea id="content" name="content" placeholder="What's happening?" value={this.state.content} onChange={this.handleChange} className="form-control"></textarea>
