@@ -1,7 +1,12 @@
 # dashi
 
 ## Link to Heroku
-www.###.com
+https://dashi-fe.herokuapp.com/
+
+-------------------------------------------
+
+
+<img width="750" alt="dashi-landing" src="https://user-images.githubusercontent.com/43688796/65281873-6697c100-dae8-11e9-85c1-2cc7a8604c10.png">
 
 -------------------------------------------
 #### What is Dashi?
@@ -24,10 +29,10 @@ www.###.com
 -----------------------------------------------------------------------------------
 #### User Story
 - Sign up to create a profile and then login to the site
-- Be redirected to a home page where cities and posts can be viewed
+- Be redirected to a home page where posts and news
 - Users have the option to create, edit, and delete their own posts
 - Users have the option to update and delete their profile
-- Navigate between pages using a navbar
+- Navigate between pages using a navbar: Home, Profile, News
 
 
 -------------------------------------------------------------------------------------------
