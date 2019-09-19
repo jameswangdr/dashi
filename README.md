@@ -1,4 +1,4 @@
-# dashi
+# Dashi
 
 ## Link to Heroku
 https://dashi-fe.herokuapp.com/
